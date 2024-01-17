@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:police_feedback/chat_boot.dart';
+import 'package:police_feedback/Unit.dart';
+import 'package:police_feedback/loginscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(Unitscreen());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const chatBoot(),
+      home: LoginScreen(),
     );
   }
 }
